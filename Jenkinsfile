@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     AWS_REGION = 'ap-south-1'
-    ECR_REPO = 062344139356.dkr.ecr.ap-south-5.amazonaws.com/grono-web'
+    ECR_REPO = '062344139356.dkr.ecr.ap-south-1.amazonaws.com/grono-web'
   }
 
   triggers {
