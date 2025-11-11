@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grono-web-deploy
+  labels:
+    app: grono-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: grono-web
+  template:
+    metadata:
+      labels:
+        app: grono-web
+    spec:
+      containers:
+      - name: grono-web
+        image: <ECR_REPO_URL>:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grono-web-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: grono-web
+  ports:
+  - port: 80
+    targetPort: 80
